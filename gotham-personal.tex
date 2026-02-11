@@ -4,15 +4,16 @@
 % ----------------------------
 % Brand color palette
 % ----------------------------
-\definecolor{BrandPrimary}{HTML}{021927}
+\definecolor{BrandPrimary}{HTML}{324857}
 \definecolor{BrandPrimaryLight}{HTML}{FFF3D6}
+\definecolor{BrandCanvas}{HTML}{FAF7EE}
 \definecolor{BrandAccent}{HTML}{6D5C37}
-\definecolor{BrandSuccess}{HTML}{470B0B}
-\definecolor{BrandAlert}{HTML}{F24333}
+\definecolor{BrandSuccess}{HTML}{1F4E66}
+\definecolor{BrandAlert}{HTML}{8A2432}
 \definecolor{BrandText}{HTML}{010C13}
 
 % Map Gotham semantic color slots to your brand.
-\colorlet{colorPale}{white}             % default slide background
+\colorlet{colorPale}{BrandCanvas}       % default slide background
 \colorlet{colorDark}{BrandText}         % default text color
 \colorlet{colorA}{BrandPrimary}         % frame title, standout
 \colorlet{colorAreversed}{BrandPrimaryLight}
@@ -25,7 +26,11 @@
 \renewcommand{\gothamHookPostColorBGSet}{%
   \colorlet{colorStandout}{colorA}%
   \colorlet{colorFrametitle}{colorA}%
+  \colorlet{colorTitlepage}{colorA}%
   \colorlet{colorProgBar}{colorC}%
+  \colorlet{colorBackElement}{colorB}%
+  \colorlet{colorAlert}{colorD}%
+  \colorlet{colorExample}{colorE}%
   \setbeamercolor{frametitle}{%
     use=primary palette,
     parent=primary palette,
@@ -34,6 +39,8 @@
   }%
   % Progress bar "empty track" color.
   \setbeamercolor{progress bar}{fg=colorProgBar, bg=colorB!65!colorBG}%
+  \setbeamercolor{alerted text}{fg=colorAlert}%
+  \setbeamercolor{example text}{fg=colorExample}%
   \setbeamercolor{standout}{bg=colorStandout, fg=colorPale}%
 }
 
@@ -115,3 +122,20 @@
   edging default=off,
   rotateFooter default=off
 }
+
+% Keep block variants aligned with the brand palette.
+\setbeamercolor{block title}{fg=colorPale, bg=colorA}
+\setbeamercolor{block body}{fg=colorDark, bg=colorB!55!colorPale}
+\setbeamercolor{block title alerted}{fg=colorPale, bg=colorAlert}
+\setbeamercolor{block body alerted}{fg=colorDark, bg=colorAlert!12!colorPale}
+\setbeamercolor{block title example}{fg=colorPale, bg=colorExample}
+\setbeamercolor{block body example}{fg=colorDark, bg=colorExample!12!colorPale}
+
+% TOC number circles should follow the primary brand, not alert color.
+\tikzset{section number/.style={
+  circle,
+  fill=colorA,
+  minimum size=0.4em,
+  text=colorPale,
+  inner sep=1.5pt,
+}}
