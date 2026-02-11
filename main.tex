@@ -1,0 +1,31 @@
+\documentclass[10pt,aspectratio=169]{beamer}
+\usetheme{gotham}
+
+% Keep almost all visual customization in one file.
+\input{gotham-personal}
+
+\title[Short Title]{Your Presentation Title}
+\subtitle{Subtitle or Tagline}
+\author[Your Name]{Your Name}
+\institute{Your Institute}
+\date[\today]{\today}
+
+\begin{document}
+
+\maketitle
+
+\begin{frame}[toc]{Agenda}
+  \tableofcontents
+\end{frame}
+
+\section{Introduction}
+\input{sections/01-intro}
+
+\section{Main Content}
+\input{sections/02-content}
+
+\begin{frame}[standout]
+  Questions?
+\end{frame}
+
+\end{document}
